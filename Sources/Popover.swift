@@ -22,9 +22,6 @@ public struct Popover: Identifiable {
     /// The view that the popover presents.
     public var view: AnyView
 
-    /// A view that goes behind the popover.
-    public var background: AnyView
-
     /**
      A popover.
      - parameter attributes: Customize the popover.
@@ -38,7 +35,6 @@ public struct Popover: Identifiable {
         context.attributes = attributes
         self.context = context
         self.view = AnyView(view().environmentObject(context))
-        background = AnyView(Color.clear)
     }
 
     /**
@@ -56,7 +52,6 @@ public struct Popover: Identifiable {
         context.attributes = attributes
         self.context = context
         self.view = AnyView(view().environmentObject(self.context))
-        self.background = AnyView(background().environmentObject(self.context))
     }
 
     /**

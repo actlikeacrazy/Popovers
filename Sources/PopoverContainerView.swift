@@ -31,7 +31,6 @@ struct PopoverContainerView: View {
                 /// All frames are calculated from the origin at the top-left, so use `.topLeading`.
                 ZStack(alignment: .topLeading) {
                     /// Show the popover's background.
-                    popover.background
 
                     /// Show the popover's main content view.
                     HStack(alignment: .top) {
