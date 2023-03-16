@@ -27,9 +27,6 @@ struct PopoverModifier: ViewModifier {
     /// The popover's view.
     let view: AnyView
 
-    /// The popover's background.
-    let background: AnyView
-
     /// Reference to the popover.
     @State var popover: Popover?
 
@@ -45,7 +42,6 @@ struct PopoverModifier: ViewModifier {
         _present = present
         self.buildAttributes = buildAttributes
         self.view = AnyView(view())
-        background = AnyView(Color.clear)
     }
 
     /// Create a popover with a background. Use `.popover(present:attributes:view:background:)` to access.
@@ -58,7 +54,6 @@ struct PopoverModifier: ViewModifier {
         _present = present
         self.buildAttributes = buildAttributes
         self.view = AnyView(view())
-        self.background = AnyView(background())
     }
 
     func body(content: Content) -> some View {
@@ -107,8 +102,7 @@ struct PopoverModifier: ViewModifier {
 
                         let popover = Popover(
                             attributes: attributes,
-                            view: { view },
-                            background: { background }
+                            view: { view }
                         )
 
                         /// Store a reference to the popover.
